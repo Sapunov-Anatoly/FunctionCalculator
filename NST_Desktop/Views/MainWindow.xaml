@@ -1,0 +1,73 @@
+﻿<Window x:Class="NST_Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:NST_Desktop.ViewModels"
+        xmlns:extensions="clr-namespace:NST_Desktop.HelperClasses"
+        mc:Ignorable="d"
+        Title="Калькулятор функций" Height="600" Width="800" WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Список с выбором функции -->
+        <StackPanel Grid.Column="0" Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <Label Content="Функция" />
+            <ListBox Margin="10"
+                     ItemsSource="{Binding Functions}"
+                     SelectedItem="{Binding SelectedFunction}"
+                     DisplayMemberPath="FunctionName"/>
+            <Label Content="Коэффициент a" />
+            <TextBox Text="{Binding SelectedFunction.A}" 
+                     Margin="0 5"
+                     extensions:TextBoxHelper.NumberValidation="True"/>
+            <Label Content="Коэффициент b" />
+            <TextBox Text="{Binding SelectedFunction.B}" 
+                     Margin="0 5"
+                     extensions:TextBoxHelper.NumberValidation="True"/>
+            <Label Content="Коэффициент c" />
+            <ComboBox ItemsSource="{Binding SelectedFunction.CoefficientsC}" 
+                      SelectedItem="{Binding SelectedFunction.C}" 
+                      Margin="0 5"/>
+        </StackPanel>
+
+        <!-- Таблица с результатами -->
+        <DataGrid Grid.Column="3" 
+          ItemsSource="{Binding Results}" 
+          AutoGenerateColumns="False" 
+          CanUserAddRows="True"
+          Margin="10"
+          HorizontalAlignment="Stretch" 
+          VerticalAlignment="Stretch">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="f(x, y)" 
+                            Binding="{Binding F}" 
+                            IsReadOnly="True" />
+                <DataGridTextColumn Header="x">
+                    <DataGridTextColumn.Binding>
+                        <Binding Path="X" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <extensions:DataGridValidationRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="y">
+                    <DataGridTextColumn.Binding>
+                        <Binding Path="Y" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <extensions:DataGridValidationRule />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

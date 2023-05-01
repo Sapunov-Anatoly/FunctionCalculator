@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NST_Desktop", "NST_Desktop.csproj", "{9270CFB9-2EDB-4369-8DC2-40FB7BCA41CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NST_Desktop.Tests", "..\NST_Desktop.Tests\NST_Desktop.Tests.csproj", "{40C664A0-9F33-42C2-BA2C-926B366AADD5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9270CFB9-2EDB-4369-8DC2-40FB7BCA41CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9270CFB9-2EDB-4369-8DC2-40FB7BCA41CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9270CFB9-2EDB-4369-8DC2-40FB7BCA41CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9270CFB9-2EDB-4369-8DC2-40FB7BCA41CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40C664A0-9F33-42C2-BA2C-926B366AADD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40C664A0-9F33-42C2-BA2C-926B366AADD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40C664A0-9F33-42C2-BA2C-926B366AADD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40C664A0-9F33-42C2-BA2C-926B366AADD5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {20022DDC-FAC2-4A6D-BCE5-D9B456FA751D}
+	EndGlobalSection
+EndGlobal
