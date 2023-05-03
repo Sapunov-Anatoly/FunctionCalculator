@@ -7,22 +7,32 @@ using System.Collections.Specialized;
 
 namespace NST_Desktop.ViewModels
 {
-    /// <summary> Класс основной модели представления. </summary>
+    /// <summary> 
+    /// Класс основной модели представления. 
+    /// </summary>
     public class MainViewModel : INotifyPropertyChanged
     {
-        /// <summary> Выбранная Функция. </summary>
+        /// <summary> 
+        /// Выбранная Функция.
+        /// </summary>
         private MathFunction _selectedFunction;
 
-        /// <summary> Список строк DataGrid. </summary>
+        /// <summary> 
+        /// Список строк DataGrid. 
+        /// </summary>
         public ObservableCollection<ResultItems> Results { get; } = new ObservableCollection<ResultItems>();
 
-        /// <summary> Список функций. </summary>
+        /// <summary> 
+        /// Список функций. 
+        /// </summary>
         public ObservableCollection<MathFunction> Functions { get; } = new ObservableCollection<MathFunction>();
         
-        /// <summary> Выбранная функция. </summary>
+        /// <summary> 
+        /// Выбранная функция. 
+        /// </summary>
         public MathFunction SelectedFunction 
         {
-            get { return _selectedFunction; }
+            get => _selectedFunction;
             set 
             {
                 if (_selectedFunction != value)
@@ -33,7 +43,9 @@ namespace NST_Desktop.ViewModels
             } 
         }
 
-        /// <summary> Конструктор модели представления, задающий функции и их параметры, а также подписывающий событие изменения для коллекции строк DataGrid. </summary>
+        /// <summary> 
+        /// Конструктор модели представления, задающий функции и их параметры, а также подписывающий событие изменения для коллекции строк DataGrid. 
+        /// </summary>
         public MainViewModel()
         {
             Functions.Add(new MathFunction("Линейная", 0, 0, 1, new List<int> { 1, 2, 3, 4, 5 }, (a, b, c, x, y) => a * x + b * 1 + c));
@@ -62,7 +74,9 @@ namespace NST_Desktop.ViewModels
             }
         }
 
-        /// <summary> Определяет событие INotifyPropertyChanged. </summary>
+        /// <summary> 
+        /// Определяет событие INotifyPropertyChanged. 
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>

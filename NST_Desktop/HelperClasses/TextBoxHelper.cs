@@ -5,7 +5,7 @@ using System.Windows.Input;
 namespace NST_Desktop.HelperClasses
 {
     /// <summary>
-    /// Класс, предстовляющий статические методы и свойства для работы с TextBox. 
+    /// Класс, представляющий статические методы и свойства для работы с TextBox. 
     /// </summary>
     public static class TextBoxHelper
     {
@@ -105,8 +105,7 @@ namespace NST_Desktop.HelperClasses
         /// <returns> true, если переданный текст является числом, иначе false. </returns>
         private static bool IsValid(string text)
         {
-            int result;
-            return int.TryParse(text, out result);
+            return int.TryParse(text, out int result);
         }
     }
 }

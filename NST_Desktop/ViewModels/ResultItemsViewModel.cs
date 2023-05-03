@@ -3,22 +3,34 @@ using NST_Desktop.Models;
 
 namespace NST_Desktop.ViewModels
 {
-    /// <summary> Класс модели представления для вычисления функций. </summary>
+    /// <summary> 
+    /// Класс модели представления для вычисления функций. 
+    /// </summary>
     public class ResultItems : INotifyPropertyChanged
     {
-        /// <summary> Выбранная функция. </summary>
-        private MathFunction selected_function;
+        /// <summary> 
+        /// Выбранная функция.
+        /// </summary>
+        private MathFunction _selected_function;
 
-        /// <summary> Результат вычисления функции. </summary>
+        /// <summary> 
+        /// Результат вычисления функции. 
+        /// </summary>
         private double _f;
 
-        /// <summary> Значение X. </summary>
+        /// <summary>
+        /// Значение X. 
+        /// </summary>
         private double _x;
 
-        /// <summary> Значение Y. </summary>
+        /// <summary> 
+        /// Значение Y. 
+        /// </summary>
         private double _y;
 
-        /// <summary> Результат вычисления функции. </summary>
+        /// <summary> 
+        /// Результат вычисления функции. 
+        /// </summary>
         public double F
         {
             get => _f;
@@ -32,7 +44,9 @@ namespace NST_Desktop.ViewModels
             }
         }
 
-        /// <summary> Значение X. </summary>
+        /// <summary> 
+        /// Значение X. 
+        /// </summary>
         public double X
         {
             get => _x;
@@ -47,7 +61,9 @@ namespace NST_Desktop.ViewModels
             }
         }
 
-        /// <summary> Значение Y. </summary>
+        /// <summary> 
+        /// Значение Y. 
+        /// </summary>
         public double Y
         {
             get => _y;
@@ -70,12 +86,14 @@ namespace NST_Desktop.ViewModels
         {
             if (function != null)
             {
-                selected_function = function;
+                _selected_function = function;
                 F = (double)(function.FunctionWithXY(X, Y));
             }
         }
 
-        /// <summary> Определяет событие INotifyPropertyChanged. </summary>
+        /// <summary> 
+        /// Определяет событие INotifyPropertyChanged. 
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
@@ -88,9 +106,9 @@ namespace NST_Desktop.ViewModels
 
             if (propertyName == nameof(X) || propertyName == nameof(Y))
             {
-                if (selected_function != null)
+                if (_selected_function != null)
                 {
-                    F = (double)(selected_function.FunctionWithXY(X, Y));
+                    F = (double)(_selected_function.FunctionWithXY(X, Y));
                 }
             }
         }
